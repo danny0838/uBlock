@@ -3054,6 +3054,9 @@ Parser.utils = Parser.prototype.utils = (( ) => {
                 const s = this.tokenizableStrFromNode(node.val);
                 const first = this.firstCharCodeClass(s);
                 const last = this.lastCharCodeClass(s);
+                if ( node.flags.max === 0 ) {
+                    return '';
+                }
                 if ( node.flags.min !== 0 ) {
                     return String.fromCharCode(first, last);
                 }
